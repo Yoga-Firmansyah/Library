@@ -23,7 +23,7 @@ class MemberSeeder extends Seeder
                 'email' => $faker->email,
                 'phone_number' => '0812' . $faker->randomNumber(8),
                 'address' => $faker->address,
-                'gender' => $faker->randomElement(['L', 'P']),
+                'sex' => $faker->randomElement(['L', 'P']),
             ]);
         }
     }
