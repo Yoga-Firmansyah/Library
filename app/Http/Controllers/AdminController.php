@@ -27,7 +27,7 @@ class AdminController extends Controller
 
         $label_donut = Publisher::orderBy('publishers.id', 'ASC')
             ->join('books', 'books.publisher_id', '=', 'publishers.id')
-            ->groupBy('publishers.id')
+            ->groupBy('publishers.id', 'publishers.name')
             ->pluck('publishers.name');
 
         $data_pie = Book::selectRaw('COUNT(catalog_id) AS total')
@@ -37,7 +37,7 @@ class AdminController extends Controller
 
         $label_pie = Catalog::orderBy('catalogs.id', 'ASC')
         ->join('books', 'books.catalog_id', '=', 'catalogs.id')
-        ->groupBy('catalogs.id')
+        ->groupBy('catalogs.id', 'catalogs.name')
         ->pluck('catalogs.name');
 
         $label_bar = ['Borrow', 'Return'];
